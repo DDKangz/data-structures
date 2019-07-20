@@ -6,8 +6,7 @@ var LinkedList = function() {
   list.addToTail = function(value) {
     //take the value and use the node function to turn it into a node
     var newNode = Node(value);
-    //.middle = [];
-    //
+
     if (list.head === null) {
       list.head = newNode;
       list.tail = newNode;
@@ -23,7 +22,16 @@ var LinkedList = function() {
     return store;
   };
 
-  list.contains = function(target) {
+  list.contains = function(target) {    //returns a boolean if givin value is in list
+    let currentNode = list.head;
+    while (currentNode) {
+      if (currentNode.value === target) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return false;
   };
 
   return list;
